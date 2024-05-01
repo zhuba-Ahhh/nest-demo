@@ -1,0 +1,19 @@
+@type = application/json
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwMDUsIm5hbWUiOiJ3YW5nd3UiLCJpYXQiOjE3MTE0NDY2OTcsImV4cCI6MTcxMTQ1MDI5NywiYXVkIjoibG9jYWxob3N0OjMwMDAiLCJpc3MiOiJsb2NhbGhvc3Q6MzAwMCJ9.TOoLo72X0X2r28qCCHO40N-ZuSL96D_leal3D7h-wsU
+GET  http://localhost:3000/api/users
+Content-Type: {{type}}
+Authorization: Bearer {{token}}
+
+
+GET  http://localhost:3000/api/products/getProductId?id=1
+
+
+POST  http://localhost:3000/api/products/addProduct
+Content-Type: application/json
+
+DELETE  http://localhost:3000/api/products/deleteProduct?id=101
+
+
+POST  http://localhost:3000/api/auth/sign-in
+Content-Type: application/json
+

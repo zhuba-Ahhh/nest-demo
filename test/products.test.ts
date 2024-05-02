@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi, vitest } from 'vitest';
-import { ProductsController } from '../products.controller';
-import { ProductsService } from '../products.service';
-import { Products } from '../products.entity';
+import { ProductsController } from '../src/products/products.controller';
+import { ProductsService } from '../src/products/products.service';
+import { Products } from '../src/products/products.entity';
 import { Repository } from 'typeorm';
 
 type productsRepository = Repository<Products>;

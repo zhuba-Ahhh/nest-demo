@@ -1,5 +1,5 @@
 // products.service.ts
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Products } from './products.entity';
@@ -12,6 +12,7 @@ export class ProductsService {
   ) {}
   // 查询数据库产品数据
   async getList(): Promise<Products[]> {
+    Logger.log('getList');
     return await this.productsRepository.query('select * from products');
   }
   async getProductById(id: number): Promise<any> {
@@ -32,6 +33,7 @@ export class ProductsService {
   async addProduct(installData: any): Promise<object> {
     try {
       await this.productsRepository.insert(installData);
+      Logger.log('addProduct');
       return {
         code: 200,
         data: null,
@@ -48,6 +50,7 @@ export class ProductsService {
   async delProuct(id: number): Promise<object> {
     try {
       await this.productsRepository.delete(id);
+      Logger.log('delProuct');
       return {
         code: 200,
         data: null,

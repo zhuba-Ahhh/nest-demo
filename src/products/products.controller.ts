@@ -9,9 +9,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation } from '@nestjs/swagger';
+import { ApiTags, ApiOperation, ApiParam } from '@nestjs/swagger';
 import { ProductsService } from './products.service';
 import { Products } from './products.entity';
+import { ProductsDto, ProductsIdDto } from './dto/product.dto';
 
 @ApiTags('products')
 @Controller('products')
@@ -24,19 +25,21 @@ export class ProductsController {
     return this.productsService.getList();
   }
   @ApiOperation({ summary: '通过id查询产品' })
+  @ApiParam({ name: 'id', description: '要查询的产品的ID', type: 'number' })
   @Get('getProductId')
-  getProductId(@Query() query: any): Promise<object> {
-    const id: number = parseInt(query.id);
-    return this.productsService.getProductById(id);
+  getProductId(@Query() query: ProductsIdDto): Promise<object> {
+    const id: number = query.id;
+    return this.productsService.getProductById(Number(id));
   }
   @ApiOperation({ summary: '新增产品' })
   @Post('addProduct')
-  addProduct(@Body() body: any): Promise<object> {
+  addProduct(@Body() body: ProductsDto): Promise<object> {
     return this.productsService.addProduct(body);
   }
   @ApiOperation({ summary: '通过id删除产品' })
+  @ApiParam({ name: 'id', description: '要删除的产品的ID', type: 'number' })
   @Get('deleteProduct')
   deleteProduct(@Query() id: number): Promise<object> {
-    return this.productsService.delProuct(id);
+    return this.productsService.delProuct(Number(id));
   }
 }

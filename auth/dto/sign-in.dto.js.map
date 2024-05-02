@@ -1,1 +1,1 @@
-{"version":3,"file":"sign-in.dto.js","sourceRoot":"","sources":["../../../src/auth/dto/sign-in.dto.ts"],"names":[],"mappings":";;;AACA,MAAa,SAAS;CAGrB;AAHD,8BAGC"}
+{"version":3,"sources":["../../../src/auth/dto/sign-in.dto.ts"],"sourcesContent":["// src/auth/dto/sign-in.dto.ts\nexport class SignInDto {\n  readonly name: string;\n  readonly password: string;\n}\n"],"names":["SignInDto"],"rangeMappings":";;;;;;;;;;;;","mappings":"AAAA,8BAA8B;;;;;+BACjBA;;;eAAAA;;;AAAN,IAAA,AAAMA,YAAN,MAAMA;AAGb"}

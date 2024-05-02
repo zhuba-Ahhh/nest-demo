@@ -1,28 +1,34 @@
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "UserController", {
+    enumerable: true,
+    get: function() {
+        return UserController;
+    }
+});
+const _common = require("@nestjs/common");
+const _userservice = require("./user.service");
+const _createuserdto = require("./dto/create-user.dto");
+const _updateuserdto = require("./dto/update-user.dto");
+const _resultdto = require("../utils/result.dto");
+const _swagger = require("@nestjs/swagger");
+function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    else for(var i = decorators.length - 1; i >= 0; i--)if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
+}
+function _ts_metadata(k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserController = void 0;
-const common_1 = require("@nestjs/common");
-const user_service_1 = require("./user.service");
-const create_user_dto_1 = require("./dto/create-user.dto");
-const update_user_dto_1 = require("./dto/update-user.dto");
-const result_dto_1 = require("../utils/result.dto");
-const swagger_1 = require("@nestjs/swagger");
+}
+function _ts_param(paramIndex, decorator) {
+    return function(target, key) {
+        decorator(target, key, paramIndex);
+    };
+}
 let UserController = class UserController {
-    constructor(userService) {
-        this.userService = userService;
-    }
     create(createUserDto) {
         return this.userService.create(createUserDto);
     }
@@ -30,14 +36,12 @@ let UserController = class UserController {
         try {
             const result = await this.userService.findAll();
             if (result) {
-                return new result_dto_1.ResultDto(true, 200, '', result);
+                return new _resultdto.ResultDto(true, 200, '', result);
+            } else {
+                return new _resultdto.ResultDto(false, 500, '查询失败');
             }
-            else {
-                return new result_dto_1.ResultDto(false, 500, '查询失败');
-            }
-        }
-        catch (error) {
-            throw new common_1.HttpException(new result_dto_1.ResultDto(false, common_1.HttpStatus.INTERNAL_SERVER_ERROR, error.message), common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (error) {
+            throw new _common.HttpException(new _resultdto.ResultDto(false, _common.HttpStatus.INTERNAL_SERVER_ERROR, error.message), _common.HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return;
     }
@@ -50,46 +54,61 @@ let UserController = class UserController {
     remove(id) {
         return this.userService.remove(+id);
     }
+    constructor(userService){
+        this.userService = userService;
+    }
 };
-exports.UserController = UserController;
-__decorate([
-    (0, common_1.Post)(),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
-    __metadata("design:returntype", void 0)
+_ts_decorate([
+    (0, _common.Post)(),
+    _ts_param(0, (0, _common.Body)()),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        typeof _createuserdto.CreateUserDto === "undefined" ? Object : _createuserdto.CreateUserDto
+    ]),
+    _ts_metadata("design:returntype", void 0)
 ], UserController.prototype, "create", null);
-__decorate([
-    (0, common_1.Get)('list'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Promise)
+_ts_decorate([
+    (0, _common.Get)('list'),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", []),
+    _ts_metadata("design:returntype", Promise)
 ], UserController.prototype, "findAll", null);
-__decorate([
-    (0, common_1.Get)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+_ts_decorate([
+    (0, _common.Get)(':id'),
+    _ts_param(0, (0, _common.Param)('id')),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        String
+    ]),
+    _ts_metadata("design:returntype", void 0)
 ], UserController.prototype, "findOne", null);
-__decorate([
-    (0, common_1.Patch)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __param(1, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_user_dto_1.UpdateUserDto]),
-    __metadata("design:returntype", void 0)
+_ts_decorate([
+    (0, _common.Patch)(':id'),
+    _ts_param(0, (0, _common.Param)('id')),
+    _ts_param(1, (0, _common.Body)()),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        String,
+        typeof _updateuserdto.UpdateUserDto === "undefined" ? Object : _updateuserdto.UpdateUserDto
+    ]),
+    _ts_metadata("design:returntype", void 0)
 ], UserController.prototype, "update", null);
-__decorate([
-    (0, common_1.Delete)(':id'),
-    __param(0, (0, common_1.Param)('id')),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+_ts_decorate([
+    (0, _common.Delete)(':id'),
+    _ts_param(0, (0, _common.Param)('id')),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        String
+    ]),
+    _ts_metadata("design:returntype", void 0)
 ], UserController.prototype, "remove", null);
-exports.UserController = UserController = __decorate([
-    (0, swagger_1.ApiTags)('user'),
-    (0, common_1.Controller)('user'),
-    __metadata("design:paramtypes", [user_service_1.UserService])
+UserController = _ts_decorate([
+    (0, _swagger.ApiTags)('user'),
+    (0, _common.Controller)('user'),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        typeof _userservice.UserService === "undefined" ? Object : _userservice.UserService
+    ])
 ], UserController);
+
 //# sourceMappingURL=user.controller.js.map

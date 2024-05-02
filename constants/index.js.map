@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/constants/index.ts"],"names":[],"mappings":";;;AACa,QAAA,gBAAgB,GAAG,OAAO,CAAC"}
+{"version":3,"sources":["../../src/constants/index.ts"],"sourcesContent":["// src/constants/index.ts\nexport const REQUEST_USER_KEY = 'users';\n"],"names":["REQUEST_USER_KEY"],"rangeMappings":";;;;;;;;;;;","mappings":"AAAA,yBAAyB;;;;;+BACZA;;;eAAAA;;;AAAN,MAAMA,mBAAmB"}

@@ -1,77 +1,92 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */ // src/auth/auth.controller.ts
 "use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+Object.defineProperty(exports, "AuthController", {
+    enumerable: true,
+    get: function() {
+        return AuthController;
+    }
+});
+const _common = require("@nestjs/common");
+const _signindto = require("./dto/sign-in.dto");
+const _publicdecorator = require("../common/decorators/public.decorator");
+const _authservice = require("./auth.service");
+const _signupdto = require("./dto/sign-up.dto");
+const _resultdto = require("../utils/result.dto");
+function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    else for(var i = decorators.length - 1; i >= 0; i--)if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
+}
+function _ts_metadata(k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __param = (this && this.__param) || function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthController = void 0;
-const common_1 = require("@nestjs/common");
-const sign_in_dto_1 = require("./dto/sign-in.dto");
-const public_decorator_1 = require("../common/decorators/public.decorator");
-const auth_service_1 = require("./auth.service");
-const sign_up_dto_1 = require("./dto/sign-up.dto");
-const result_dto_1 = require("../utils/result.dto");
+}
+function _ts_param(paramIndex, decorator) {
+    return function(target, key) {
+        decorator(target, key, paramIndex);
+    };
+}
 let AuthController = class AuthController {
-    constructor(authService) {
-        this.authService = authService;
-    }
     async signUp(signUpDto) {
         try {
             const result = await this.authService.signUp(signUpDto);
             if (result) {
-                return new result_dto_1.ResultDto(true, common_1.HttpStatus.CREATED, '用户注册成功', result);
+                return new _resultdto.ResultDto(true, _common.HttpStatus.CREATED, '用户注册成功', result);
+            } else {
+                // 如果注册失败，返回相应的错误码和消息
+                return new _resultdto.ResultDto(false, _common.HttpStatus.BAD_REQUEST, '用户注册失败');
             }
-            else {
-                return new result_dto_1.ResultDto(false, common_1.HttpStatus.BAD_REQUEST, '用户注册失败');
-            }
-        }
-        catch (error) {
+        } catch (error) {
             console.error('Error during sign-up:', error);
-            throw new common_1.HttpException(new result_dto_1.ResultDto(false, common_1.HttpStatus.INTERNAL_SERVER_ERROR, error.message), common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new _common.HttpException(new _resultdto.ResultDto(false, _common.HttpStatus.INTERNAL_SERVER_ERROR, error.message), _common.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
     async signIn(signInDto) {
         try {
             const result = await this.authService.signIn(signInDto);
             if (result) {
-                return new result_dto_1.ResultDto(true, common_1.HttpStatus.OK, '用户登录成功', result);
+                return new _resultdto.ResultDto(true, _common.HttpStatus.OK, '用户登录成功', result);
+            } else {
+                // 如果登录失败，返回相应的错误码和消息
+                return new _resultdto.ResultDto(false, _common.HttpStatus.BAD_REQUEST, '用户登录失败');
             }
-            else {
-                return new result_dto_1.ResultDto(false, common_1.HttpStatus.BAD_REQUEST, '用户登录失败');
-            }
-        }
-        catch (error) {
-            throw new common_1.HttpException(new result_dto_1.ResultDto(false, common_1.HttpStatus.INTERNAL_SERVER_ERROR, error.message), common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (error) {
+            throw new _common.HttpException(new _resultdto.ResultDto(false, _common.HttpStatus.INTERNAL_SERVER_ERROR, error.message), _common.HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    constructor(authService){
+        this.authService = authService;
+    }
 };
-exports.AuthController = AuthController;
-__decorate([
-    (0, public_decorator_1.Public)(),
-    (0, common_1.Post)('sign-up'),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [sign_up_dto_1.SignUpDto]),
-    __metadata("design:returntype", Promise)
+_ts_decorate([
+    (0, _publicdecorator.Public)(),
+    (0, _common.Post)('sign-up'),
+    _ts_param(0, (0, _common.Body)()),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        typeof _signupdto.SignUpDto === "undefined" ? Object : _signupdto.SignUpDto
+    ]),
+    _ts_metadata("design:returntype", Promise)
 ], AuthController.prototype, "signUp", null);
-__decorate([
-    (0, public_decorator_1.Public)(),
-    (0, common_1.Post)('sign-in'),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [sign_in_dto_1.SignInDto]),
-    __metadata("design:returntype", Promise)
+_ts_decorate([
+    (0, _publicdecorator.Public)(),
+    (0, _common.Post)('sign-in'),
+    _ts_param(0, (0, _common.Body)()),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        typeof _signindto.SignInDto === "undefined" ? Object : _signindto.SignInDto
+    ]),
+    _ts_metadata("design:returntype", Promise)
 ], AuthController.prototype, "signIn", null);
-exports.AuthController = AuthController = __decorate([
-    (0, common_1.Controller)('auth'),
-    __metadata("design:paramtypes", [auth_service_1.AuthService])
+AuthController = _ts_decorate([
+    (0, _common.Controller)('auth'),
+    _ts_metadata("design:type", Function),
+    _ts_metadata("design:paramtypes", [
+        typeof _authservice.AuthService === "undefined" ? Object : _authservice.AuthService
+    ])
 ], AuthController);
+
 //# sourceMappingURL=auth.controller.js.map

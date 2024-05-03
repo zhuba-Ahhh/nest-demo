@@ -16,6 +16,12 @@ const _usersmodule = require("./users/users.module");
 const _config = require("@nestjs/config");
 const _core = require("@nestjs/core");
 const _catcherror = require("./utils/catch.error");
+const _env = /*#__PURE__*/ _interop_require_default(require("./env"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
+}
 function _ts_decorate(decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -36,12 +42,12 @@ AppModule = _ts_decorate([
             }),
             _typeorm.TypeOrmModule.forRootAsync({
                 useFactory: ()=>({
-                        type: 'mysql',
-                        host: process.env.DB_HOST,
-                        port: +process.env.DB_PORT,
-                        username: process.env.DB_USERNAME,
-                        password: process.env.DB_PASSWORD,
-                        database: process.env.DB_DATABASE,
+                        type: process.env.TYPE || _env.default.TYPE || 'mysql',
+                        host: process.env.DB_HOST || _env.default.DB_HOST,
+                        port: +(process.env.DB_PORT || _env.default.DB_PORT),
+                        username: process.env.DB_USERNAME || _env.default.DB_USERNAME,
+                        password: process.env.DB_PASSWORD || _env.default.DB_PASSWORD,
+                        database: process.env.DB_DATABASE || _env.default.DB_DATABASE,
                         autoLoadEntities: true,
                         // entities: [__dirname + '/**/*.entity{.ts,.js}'], // 扫描本项目中.entity.ts或者.entity.js的文件
                         synchronize: true

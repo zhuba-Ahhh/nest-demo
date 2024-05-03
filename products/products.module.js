@@ -36,5 +36,3 @@ ProductsModule = _ts_decorate([
         ]
     })
 ], ProductsModule);
-
-//# sourceMappingURL=products.module.js.map

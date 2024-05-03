@@ -11,5 +11,3 @@ Object.defineProperty(exports, "SignUpDto", {
 });
 let SignUpDto = class SignUpDto {
 };
-
-//# sourceMappingURL=sign-up.dto.js.map

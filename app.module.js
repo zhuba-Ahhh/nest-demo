@@ -66,5 +66,3 @@ AppModule = _ts_decorate([
         ]
     })
 ], AppModule);
-
-//# sourceMappingURL=app.module.js.map

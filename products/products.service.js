@@ -98,5 +98,3 @@ ProductsService = _ts_decorate([
         typeof _typeorm1.Repository === "undefined" ? Object : _typeorm1.Repository
     ])
 ], ProductsService);
-
-//# sourceMappingURL=products.service.js.map

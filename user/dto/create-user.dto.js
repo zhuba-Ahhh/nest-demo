@@ -45,5 +45,3 @@ _ts_decorate([
     }),
     _ts_metadata("design:type", typeof Date === "undefined" ? Object : Date)
 ], CreateUserDto.prototype, "updateTime", void 0);
-
-//# sourceMappingURL=create-user.dto.js.map

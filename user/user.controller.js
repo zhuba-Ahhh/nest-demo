@@ -110,5 +110,3 @@ UserController = _ts_decorate([
         typeof _userservice.UserService === "undefined" ? Object : _userservice.UserService
     ])
 ], UserController);
-
-//# sourceMappingURL=user.controller.js.map

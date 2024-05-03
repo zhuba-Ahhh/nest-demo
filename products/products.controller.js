@@ -108,5 +108,3 @@ ProductsController = _ts_decorate([
         typeof _productsservice.ProductsService === "undefined" ? Object : _productsservice.ProductsService
     ])
 ], ProductsController);
-
-//# sourceMappingURL=products.controller.js.map

@@ -43,5 +43,3 @@ _ts_decorate([
 User = _ts_decorate([
     (0, _typeorm.Entity)()
 ], User);
-
-//# sourceMappingURL=user.entity.js.map

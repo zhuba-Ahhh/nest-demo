@@ -36,5 +36,3 @@ UserModule = _ts_decorate([
         ]
     })
 ], UserModule);
-
-//# sourceMappingURL=user.module.js.map

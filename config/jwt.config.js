@@ -18,5 +18,3 @@ const _default = (0, _config.registerAs)('jwt', ()=>{
         accessTokenTtl: parseInt(process.env.JWT_ACCESS_TOKEN_TTL ?? '3600', 10)
     };
 });
-
-//# sourceMappingURL=jwt.config.js.map

@@ -72,5 +72,3 @@ AccessTokenGuard = _ts_decorate([
         typeof _config.ConfigType === "undefined" ? Object : _config.ConfigType
     ])
 ], AccessTokenGuard);
-
-//# sourceMappingURL=access-token.guard.js.map

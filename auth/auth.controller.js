@@ -88,5 +88,3 @@ AuthController = _ts_decorate([
         typeof _authservice.AuthService === "undefined" ? Object : _authservice.AuthService
     ])
 ], AuthController);
-
-//# sourceMappingURL=auth.controller.js.map

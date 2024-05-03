@@ -21,5 +21,3 @@ const env = {
     JWT_ACCESS_TOKEN_TTL: 3600
 };
 const _default = env;
-
-//# sourceMappingURL=env.js.map

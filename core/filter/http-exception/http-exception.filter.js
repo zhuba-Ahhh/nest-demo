@@ -36,5 +36,3 @@ let HttpExceptionFilter = class HttpExceptionFilter {
 HttpExceptionFilter = _ts_decorate([
     (0, _common.Catch)(_common.HttpException)
 ], HttpExceptionFilter);
-
-//# sourceMappingURL=http-exception.filter.js.map

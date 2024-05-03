@@ -65,5 +65,3 @@ _ts_decorate([
     }),
     _ts_metadata("design:type", Number)
 ], ProductsIdDto.prototype, "id", void 0);
-
-//# sourceMappingURL=product.dto.js.map

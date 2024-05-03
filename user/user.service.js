@@ -48,5 +48,3 @@ _ts_decorate([
 UserService = _ts_decorate([
     (0, _common.Injectable)()
 ], UserService);
-
-//# sourceMappingURL=user.service.js.map

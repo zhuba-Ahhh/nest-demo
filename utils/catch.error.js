@@ -38,5 +38,3 @@ let UnauthorizedExceptionFilter = class UnauthorizedExceptionFilter {
 UnauthorizedExceptionFilter = _ts_decorate([
     (0, _common.Catch)(_common.UnauthorizedException)
 ], UnauthorizedExceptionFilter);
-
-//# sourceMappingURL=catch.error.js.map

@@ -1,1 +1,0 @@
-{"version":3,"sources":["../../../src/auth/interfaces/active-user-data.interface.ts"],"sourcesContent":["// src/auth/interfaces/active-user-data.interface.ts\nexport interface ActiveUserData {\n  sub: number;\n  name: string;\n}\n"],"names":[],"rangeMappings":"","mappings":"AAAA,oDAAoD"}

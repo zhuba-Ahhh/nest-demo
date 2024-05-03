@@ -30,5 +30,3 @@ let TransformInterceptor = class TransformInterceptor {
 TransformInterceptor = _ts_decorate([
     (0, _common.Injectable)()
 ], TransformInterceptor);
-
-//# sourceMappingURL=transform.interceptor.js.map

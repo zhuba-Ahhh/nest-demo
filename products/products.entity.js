@@ -42,5 +42,3 @@ _ts_decorate([
 Products = _ts_decorate([
     (0, _typeorm.Entity)()
 ], Products);
-
-//# sourceMappingURL=products.entity.js.map

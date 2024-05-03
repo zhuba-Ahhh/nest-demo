@@ -55,5 +55,3 @@ _ts_decorate([
     }),
     _ts_metadata("design:type", Object)
 ], ResultDto.prototype, "data", void 0);
-
-//# sourceMappingURL=result.dto.js.map

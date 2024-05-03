@@ -1,7 +1,7 @@
 import { ConfigEnv, defineConfig } from 'vite';
 import { VitePluginNode } from 'vite-plugin-node';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import swc from 'unplugin-swc'
+import swc from 'unplugin-swc';
 
 export default defineConfig(({ command, mode }: ConfigEnv) => {
     return {

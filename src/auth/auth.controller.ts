@@ -9,10 +9,10 @@ import {
   HttpException,
 } from '@nestjs/common';
 import { SignInDto } from './dto/sign-in.dto';
-import { Public } from 'src/common/decorators/public.decorator';
+import { Public } from '../common/decorators/public.decorator';
 import { AuthService } from './auth.service';
 import { SignUpDto } from './dto/sign-up.dto';
-import { ResultDto } from 'src/utils/result.dto';
+import { ResultDto } from '../utils/result.dto';
 
 @Controller('auth')
 export class AuthController {

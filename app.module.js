@@ -40,6 +40,7 @@ AppModule = _ts_decorate([
             _config.ConfigModule.forRoot({
                 envFilePath: '.env.development'
             }),
+            // PrismaModule,
             _typeorm.TypeOrmModule.forRootAsync({
                 useFactory: ()=>({
                         type: process.env.TYPE || _env.default.TYPE || 'mysql',

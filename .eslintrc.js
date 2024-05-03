@@ -15,7 +15,15 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js', 'test'],
+  ignorePatterns: [
+    'test',
+    'dist',
+    '.eslintrc.js',
+    'webpack.config.js',
+    'vite.config.mts',
+    'vitest.config.e2e.ts',
+    'vitest.config.mts',
+  ],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',

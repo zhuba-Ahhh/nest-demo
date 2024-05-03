@@ -31,7 +31,7 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
         output: {
           format: 'cjs' as any,
         },
-        externals: [],
+        // externals: [],
       },
     },
   };

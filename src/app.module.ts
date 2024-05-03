@@ -10,11 +10,16 @@ import { APP_FILTER } from '@nestjs/core';
 import { UnauthorizedExceptionFilter } from './utils/catch.error';
 import env from './env';
 
+// import { PrismaModule } from './prisma/prisma.module';
+import config from './config';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env.development',
+      // load: [config],
     }),
+    // PrismaModule,
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: process.env.TYPE || env.TYPE || 'mysql',

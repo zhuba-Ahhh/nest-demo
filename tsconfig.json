@@ -19,5 +19,5 @@
     "noFallthroughCasesInSwitch": false,
     "types": [""]
   },
-  "include": ["src/**/*", "test",]
+  "include": ["src/**/*", "test"]
 }

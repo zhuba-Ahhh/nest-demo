@@ -1,0 +1,20 @@
+    generator client {
+      provider = "prisma-client-js"
+    }
+
+    datasource db {
+      provider = "mysql"
+      url      = env("DATABASE_URL")
+    }
+
+    model userPrisma {
+      //BigInt类型	主键 自增值	非负BitInt
+      id       BigInt    @id @default(autoincrement()) @db.UnsignedBigInt()
+      //字符串，默认为varchar(191)
+      email    String
+      password String
+      //添加时自动设置时间，即设置Mysql默认值为CURRENT_TIMESTAMP
+      createdAt DateTime @default(now())
+      // 让Prisma在添加与更新时自动维护该字段
+      updatedAt DateTime @updatedAt
+    }

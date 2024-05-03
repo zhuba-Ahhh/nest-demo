@@ -8,6 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { APP_FILTER } from '@nestjs/core';
 import { UnauthorizedExceptionFilter } from './utils/catch.error';
+import env from './env';
 
 @Module({
   imports: [
@@ -16,12 +17,12 @@ import { UnauthorizedExceptionFilter } from './utils/catch.error';
     }),
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
-        type: 'mysql',
-        host: process.env.DB_HOST,
-        port: +process.env.DB_PORT,
-        username: process.env.DB_USERNAME,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_DATABASE,
+        type: process.env.TYPE || env.TYPE || 'mysql',
+        host: process.env.DB_HOST || env.DB_HOST,
+        port: +(process.env.DB_PORT || env.DB_PORT),
+        username: process.env.DB_USERNAME || env.DB_USERNAME,
+        password: process.env.DB_PASSWORD || env.DB_PASSWORD,
+        database: process.env.DB_DATABASE || env.DB_DATABASE,
         autoLoadEntities: true,
         // entities: [__dirname + '/**/*.entity{.ts,.js}'], // 扫描本项目中.entity.ts或者.entity.js的文件
         synchronize: true,

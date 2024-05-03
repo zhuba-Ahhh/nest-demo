@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const webpack = require('webpack');
-// fork-ts-checker-webpack-plugin需要单独安装
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const { type } = require('os');
+const swcDefaultConfig =
+  require('@nestjs/cli/lib/compiler/defaults/swc-defaults').swcDefaultsFactory()
+    .swcOptions;
 
 module.exports = {
   entry: './src/main',
@@ -15,9 +15,13 @@ module.exports = {
     rules: [
       {
         test: /\.ts?$/,
+        // use: {
+        //   loader: 'ts-loader',
+        //   options: { transpileOnly: true },
+        // },
         use: {
-          loader: 'ts-loader',
-          options: { transpileOnly: true },
+          loader: 'swc-loader',
+          options: swcDefaultConfig,
         },
         exclude: /node_modules/,
       },

@@ -26,5 +26,13 @@ export default defineConfig(({ command, mode }: ConfigEnv) => {
         initAppOnBoot: true,
       }),
     ],
+    build: {
+      rollupOptions: {
+        output: {
+          format: 'cjs' as any,
+        },
+        externals: [],
+      },
+    },
   };
 });

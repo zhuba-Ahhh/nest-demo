@@ -1,17 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
-import { ProductsModule } from './products/products.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
-import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
-import { AuthModule } from './auth/auth.module';
 import { APP_FILTER } from '@nestjs/core';
 import { UnauthorizedExceptionFilter } from './utils/catch.error';
+import { TransactionModule } from './transaction/transaction.module';
+import { BudgetModule } from './budget/budget.module';
 import env from './env';
-
-// import { PrismaModule } from './prisma/prisma.module';
-import config from './config';
 
 @Module({
   imports: [
@@ -29,14 +24,12 @@ import config from './config';
         password: process.env.DB_PASSWORD || env.DB_PASSWORD,
         database: process.env.DB_DATABASE || env.DB_DATABASE,
         autoLoadEntities: true,
-        // entities: [__dirname + '/**/*.entity{.ts,.js}'], // 扫描本项目中.entity.ts或者.entity.js的文件
         synchronize: true,
       }),
     }),
-    ProductsModule,
-    UsersModule,
     UserModule,
-    // AuthModule, // 鉴权
+    TransactionModule,
+    BudgetModule,
   ],
   controllers: [],
   providers: [
@@ -50,6 +43,5 @@ export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     if (consumer) {
     }
-    // ... middleware configurations
   }
 }

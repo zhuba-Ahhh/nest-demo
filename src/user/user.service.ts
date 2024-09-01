@@ -14,7 +14,9 @@ export class UserService {
   }
 
   async findAll() {
-    return await this.userRepository.find();
+    return await this.userRepository.find({
+      select: ['id', 'name', 'sex', 'createTime', 'updateTime'], // 排除密码字段
+    });
   }
 
   async findOne(id: number) {

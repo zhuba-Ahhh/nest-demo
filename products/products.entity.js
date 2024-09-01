@@ -28,8 +28,7 @@ _ts_decorate([
     (0, _typeorm.Column)({
         type: 'varchar',
         name: 'name'
-    }) // Column：字段
-    ,
+    }),
     _ts_metadata("design:type", String)
 ], Products.prototype, "name", void 0);
 _ts_decorate([

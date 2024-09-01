@@ -17,6 +17,6 @@ async function bootstrap() {
     const config = new _swagger.DocumentBuilder().setTitle('管理后台').setDescription('管理后台接口文档').setVersion('1.0').addBearerAuth().build();
     const document = _swagger.SwaggerModule.createDocument(app, config);
     _swagger.SwaggerModule.setup('docs', app, document);
-    await app.listen(3000);
+    await app.listen(process.env.SERVER_PORT || 3000);
 }
 bootstrap();
